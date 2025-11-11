@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import org.controlsfx.control.CheckComboBox?>
+
+<VBox spacing="20.0" stylesheets="@../design/orders-styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.liamtseva.cafepossystem.presentation.controller.MenuItemManagementController">
+
+  <padding>
+    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+  </padding>
+
+  <children>
+
+    <HBox alignment="CENTER_LEFT" spacing="10.0">
+      <children>
+        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+          <image>
+            <Image url="@../data/search.png" />
+          </image>
+        </ImageView>
+        <TextField fx:id="searchTextField" promptText="Пошук елементів меню..." styleClass="search" stylesheets="@../design/style.css" HBox.hgrow="ALWAYS" />
+      </children>
+    </HBox>
+
+    <HBox spacing="30.0" VBox.vgrow="ALWAYS">
+      <children>
+
+        <TableView fx:id="menuItemTable" prefHeight="494.0" prefWidth="667.0" styleClass="orders-table" stylesheets="@../design/style.css" HBox.hgrow="ALWAYS">
+          <columns>
+            <TableColumn fx:id="nameColumn" minWidth="180.0" prefWidth="200.0" text="Назва" />
+            <TableColumn fx:id="priceColumn" minWidth="100.0" prefWidth="120.0" text="Ціна" />
+            <TableColumn fx:id="categoryColumn" minWidth="157.60003662109375" prefWidth="157.60003662109375" text="Категорія" />
+            <TableColumn fx:id="descriptionColumn" minWidth="176.0" prefWidth="176.0" text="Опис" />
+          </columns>
+          <placeholder>
+            <Label text="Немає елементів меню" />
+          </placeholder>
+        </TableView>
+
+        <VBox alignment="CENTER" maxWidth="390.0" minWidth="280.0" prefHeight="494.0" prefWidth="330.0" spacing="20.0">
+          <children>
+
+            <GridPane hgap="10.0" vgap="10.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="142.39999713897706" minWidth="10.0" prefWidth="66.8" />
+                <ColumnConstraints hgrow="ALWAYS" maxWidth="364.80001125335696" minWidth="100.0" prefWidth="254.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints vgrow="SOMETIMES" />
+                <RowConstraints vgrow="SOMETIMES" />
+                <RowConstraints vgrow="SOMETIMES" />
+                <RowConstraints vgrow="SOMETIMES" />
+              </rowConstraints>
+              <children>
+                <Label text="Назва:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="0" />
+                <TextField fx:id="nameField" styleClass="textField" stylesheets="@../design/style.css" GridPane.columnIndex="1" />
+
+                <Label text="Ціна:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                <TextField fx:id="priceField" styleClass="textField" stylesheets="@../design/style.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                <Label text="Категорії:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                <CheckComboBox fx:id="categoryCheckComboBox" maxWidth="Infinity" styleClass="cart-input" stylesheets="@../design/style.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                <Label text="Опис:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                <TextArea fx:id="descriptionArea" prefHeight="100.0" styleClass="textField" stylesheets="@../design/style.css" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+              </children>
+            </GridPane>
+
+            <VBox alignment="CENTER" spacing="10.0">
+              <children>
+                <Button fx:id="addButton" maxWidth="Infinity" styleClass="side-btn" stylesheets="@../design/style.css" text="Додати" />
+                <Button fx:id="editButton" disable="true" maxWidth="Infinity" styleClass="side-btn" stylesheets="@../design/style.css" text="Редагувати" />
+                <Button fx:id="deleteButton" disable="true" maxWidth="Infinity" styleClass="side-btn" stylesheets="@../design/style.css" text="Видалити" />
+                <Button fx:id="clearFieldsButton" maxWidth="Infinity" styleClass="side-btn" stylesheets="@../design/style.css" text="Очистити" />
+              </children>
+            </VBox>
+
+          </children>
+        </VBox>
+      </children>
+    </HBox>
+  </children>
+</VBox>

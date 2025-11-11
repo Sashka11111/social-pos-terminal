@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="650.0" prefWidth="700.0" spacing="0" styleClass="order-details-container"
+  stylesheets="@../design/style.css, @../design/orders-styles.css"
+  xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+  fx:controller="com.liamtseva.cafepossystem.presentation.controller.OrderDetailsController">
+  <children>
+    <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="order-details-header">
+      <padding>
+        <Insets bottom="18.0" left="20.0" right="20.0" top="18.0"/>
+      </padding>
+      <children>
+        <Label styleClass="order-details-title" text="Деталі замовлення"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="closeButton" onAction="#closeWindow" styleClass="close-detail-btn"
+          stylesheets="@../design/style.css">
+          <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+              <image>
+                <Image url="@../data/close.png"/>
+              </image>
+            </ImageView>
+          </graphic>
+        </Button>
+      </children>
+    </HBox>
+
+    <ScrollPane fitToWidth="true" styleClass="order-details-scroll" VBox.vgrow="ALWAYS">
+      <content>
+        <VBox spacing="20.0" styleClass="order-details-content">
+          <padding>
+            <Insets bottom="20.0" left="24.0" right="24.0" top="20.0"/>
+          </padding>
+          <children>
+            <VBox spacing="14.0" styleClass="order-info-section">
+              <children>
+                <Label styleClass="order-section-title" text="Основна інформація"/>
+
+                <HBox spacing="12.0" styleClass="order-info-row">
+                  <children>
+                    <Label fx:id="orderDateLabel" styleClass="order-info-text"
+                      text="Дата замовлення: " wrapText="true" HBox.hgrow="ALWAYS"/>
+                  </children>
+                </HBox>
+
+                <HBox spacing="12.0" styleClass="order-info-row">
+                  <children>
+                    <Label fx:id="totalAmountLabel" styleClass="order-info-text order-amount"
+                      text="Загальна сума: "/>
+                  </children>
+                </HBox>
+
+                <HBox spacing="12.0" styleClass="order-info-row">
+                  <children>
+                    <Label fx:id="statusLabel" styleClass="order-info-text order-status"
+                      text="Статус: "/>
+                  </children>
+                </HBox>
+              </children>
+            </VBox>
+
+            <Separator styleClass="order-separator"/>
+
+            <VBox spacing="14.0" styleClass="order-info-section">
+              <children>
+                <Label styleClass="order-section-title" text="Додаткова інформація"/>
+
+                <HBox spacing="12.0" styleClass="order-info-row">
+                  <children>
+                    <Label fx:id="notesLabel" styleClass="order-info-text" text="Примітки: "
+                      wrapText="true" HBox.hgrow="ALWAYS"/>
+                  </children>
+                </HBox>
+              </children>
+            </VBox>
+
+            <Separator styleClass="order-separator"/>
+
+            <VBox spacing="14.0" styleClass="order-info-section">
+              <children>
+                <Label styleClass="order-section-title" text="Замовлені товари"/>
+                <VBox fx:id="itemsContainer" spacing="10.0" styleClass="order-items-container"/>
+              </children>
+            </VBox>
+          </children>
+        </VBox>
+      </content>
+    </ScrollPane>
+  </children>
+</VBox>

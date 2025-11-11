@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1050.0" style="-fx-background-color: transparent;" stylesheets="@../design/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.liamtseva.cafepossystem.presentation.controller.CartController">
+  <children>
+
+    <Label fx:id="cartLabel" layoutX="14.0" layoutY="14.0" styleClass="cart-message" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="14.0" />
+      <HBox layoutX="24.0" layoutY="50.0" prefHeight="754.0" prefWidth="1001.0" spacing="24.0">
+         <children>
+            <VBox maxWidth="406.0" minWidth="380.0" prefHeight="754.0" prefWidth="406.0" spacing="18.0" styleClass="checkout-panel">
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="10.0" />
+                  <VBox prefHeight="60.0" prefWidth="329.0" spacing="12.0" styleClass="finance-box">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="8.0">
+                           <children>
+                              <Label fx:id="totalAmountLabel" styleClass="total-amount" text="Загальна сума: 0.00 грн" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="8.0">
+                           <children>
+                              <Label fx:id="bonusBalanceLabel" styleClass="bonus-balance" text="Баланс бонусів: 0.00" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label styleClass="input-label" text="Використати бонуси" />
+                        <TextField fx:id="bonusToUseField" promptText="Введіть кількість..." styleClass="cart-input" />
+                     </children>
+                  </VBox>
+                  <HBox alignment="CENTER" prefHeight="46.0" prefWidth="329.0" styleClass="final-amount-box">
+                     <children>
+                        <Label fx:id="finalAmountLabel" styleClass="final-amount" text="До сплати: 0.00 грн" />
+                     </children>
+                  </HBox>
+                  <VBox spacing="14.0">
+                  <children>
+                  <VBox spacing="8.0">
+                  <children>
+                  <Label styleClass="input-label" text="Номер столика" />
+                  <TextField fx:id="tableNumberField" prefWidth="200.0" promptText="Введіть номер столика" styleClass="cart-input" />
+                  </children>
+                  </VBox>
+                   <VBox spacing="8.0">
+                      <children>
+                         <Label styleClass="input-label" text="Примітки до замовлення" />
+                         <TextArea fx:id="notesArea" prefRowCount="3" promptText="Без цибулі, додати соус..." styleClass="cart-textarea" wrapText="true" />
+                      </children>
+                   </VBox>
+                  </children>
+                  </VBox>
+                  <CheckBox fx:id="socialCheckBox" prefHeight="18.0" prefWidth="359.0" text="Спільний столик (інші можуть приєднатися)" />
+                  <Button fx:id="placeOrderButton" maxWidth="Infinity" prefHeight="50.0" styleClass="place-order-btn" text="Оформити замовлення" />
+               </children>
+               <padding>
+                  <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
+               </padding>
+            </VBox>
+            <VBox prefHeight="669.0" prefWidth="598.0" spacing="12.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <ScrollPane fx:id="cartScrollPane" fitToWidth="true" prefHeight="628.0" prefWidth="598.0" styleClass="cart-scroll" VBox.vgrow="ALWAYS">
+                     <content>
+                        <GridPane fx:id="cartGridPane" hgap="16.0" prefHeight="0.0" prefWidth="597.0" vgap="16.0">
+                           <padding>
+                              <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                           </padding>
+                        </GridPane>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+  </children>
+</AnchorPane>

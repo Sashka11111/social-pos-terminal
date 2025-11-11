@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="0" stylesheets="@../design/style.css, @../design/orders-styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.liamtseva.cafepossystem.presentation.controller.OrdersController">
+  <children>
+
+    <HBox alignment="CENTER_LEFT" spacing="16.0">
+      <padding>
+        <Insets bottom="16.0" left="24.0" right="24.0" top="16.0" />
+      </padding>
+      <children>
+        <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+          <children>
+            <TextField fx:id="searchTextField" prefHeight="50.0" prefWidth="880.0" promptText="Пошук за датою, сумою, статусом, примітками..." styleClass="orders-search-field" HBox.hgrow="ALWAYS" />
+          </children>
+        </VBox>
+        
+        <VBox minWidth="200" prefWidth="200" spacing="6.0">
+          <children>
+            <ComboBox fx:id="statusComboBox" prefHeight="38.0" prefWidth="200.0" styleClass="orders-filter-combo">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Усі статуси" />
+                  <String fx:value="PENDING" />
+                  <String fx:value="CONFIRMED" />
+                  <String fx:value="DELIVERED" />
+                  <String fx:value="CANCELLED" />
+                </FXCollections>
+              </items>
+              <value>
+                <String fx:value="Усі статуси" />
+              </value>
+            </ComboBox>
+          </children>
+        </VBox>
+      </children>
+    </HBox>
+
+    <Label fx:id="messageLabel" managed="false" prefHeight="0.0" prefWidth="880.0" styleClass="orders-message" visible="false">
+      <VBox.margin>
+        <Insets left="24.0" right="24.0" top="8.0" />
+      </VBox.margin>
+    </Label>
+
+    <ScrollPane fx:id="ordersScrollPane" fitToHeight="true" fitToWidth="true" styleClass="orders-scroll" VBox.vgrow="ALWAYS">
+      <VBox.margin>
+        <Insets bottom="24.0" left="24.0" right="24.0" top="8.0" />
+      </VBox.margin>
+      <content>
+        <TableView fx:id="ordersTableView" styleClass="orders-table" VBox.vgrow="ALWAYS">
+          <columns>
+            <TableColumn fx:id="orderDateColumn" minWidth="181.60000848770142" prefWidth="181.60000848770142" text="Дата замовлення">
+              <cellValueFactory>
+                <PropertyValueFactory property="orderDate" />
+              </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="totalAmountColumn" minWidth="118.39997863769531" prefWidth="141.59999084472656" text="Сума">
+              <cellValueFactory>
+                <PropertyValueFactory property="totalAmount" />
+              </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="statusColumn" minWidth="150" prefWidth="182.4000244140625" text="Статус">
+              <cellValueFactory>
+                <PropertyValueFactory property="status" />
+              </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="notesColumn" minWidth="181.60003662109375" prefWidth="219.19992065429688" text="Примітки">
+            <cellValueFactory>
+            <PropertyValueFactory property="notes" />
+            </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="tableNumberColumn" minWidth="87.20001220703125" prefWidth="101.5999755859375" text="Столик" />
+            <TableColumn fx:id="socialColumn" minWidth="100" prefWidth="136.0" text="Соціальне" />
+            <TableColumn fx:id="detailsColumn" minWidth="92.0" prefWidth="122.40008544921875" text="Дії" />
+          </columns>
+        </TableView>
+      </content>
+    </ScrollPane>
+  </children>
+</VBox>

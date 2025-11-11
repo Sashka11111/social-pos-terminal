@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="20.0" stylesheets="@../design/orders-styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.liamtseva.cafepossystem.presentation.controller.LoyaltyCardManagementController">
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   <children>
+      <HBox alignment="CENTER" spacing="10.0">
+         <children>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../data/search.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="searchTextField" promptText="Пошук карт лояльності..." styleClass="search" stylesheets="@../design/style.css" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+      <HBox spacing="20.0" VBox.vgrow="ALWAYS">
+         <children>
+            <TableView fx:id="loyaltyCardTable" styleClass="orders-table" stylesheets="@../design/style.css" HBox.hgrow="ALWAYS">
+               <columns>
+                  <TableColumn fx:id="cardNumberColumn" minWidth="200.0" prefWidth="-1.0" text="Номер карти" />
+                  <TableColumn fx:id="balanceColumn" minWidth="100.0" prefWidth="-1.0" text="Баланс" />
+                  <TableColumn fx:id="userColumn" minWidth="100.0" prefWidth="-1.0" text="Користувач" />
+               </columns>
+               <placeholder>
+                  <Label text="Немає карт лояльності" />
+               </placeholder>
+            </TableView>
+            <VBox alignment="CENTER" minWidth="300.0" spacing="20.0">
+               <children>
+                  <GridPane hgap="10.0" vgap="10.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label text="Номер карти:" GridPane.halignment="RIGHT" />
+                        <TextField fx:id="cardNumberField" styleClass="textField" stylesheets="@../design/style.css" GridPane.columnIndex="1" />
+                        <Label text="Користувач:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="userComboBox" maxWidth="1.7976931348623157E308" styleClass="textField" stylesheets="@../design/style.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+                  <VBox alignment="CENTER" spacing="10.0">
+                     <children>
+                        <Button fx:id="addButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="side-btn" stylesheets="@../design/style.css" text="Додати" />
+                        <Button fx:id="deleteButton" disable="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="side-btn" stylesheets="@../design/style.css" text="Видалити" />
+                        <Button fx:id="clearFieldsButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="side-btn" stylesheets="@../design/style.css" text="Очистити" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

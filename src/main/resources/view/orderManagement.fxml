@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="20.0" stylesheets="@../design/orders-styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.liamtseva.cafepossystem.presentation.controller.OrderManagementController">
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   <children>
+      <HBox alignment="CENTER" spacing="10.0">
+         <children>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../data/search.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="searchTextField" promptText="Пошук замовлень..." styleClass="search" stylesheets="@../design/style.css" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+      <HBox spacing="20.0" VBox.vgrow="ALWAYS">
+         <children>
+            <TableView fx:id="orderTable" styleClass="orders-table" stylesheets="@../design/style.css" HBox.hgrow="ALWAYS">
+               <columns>
+                  <TableColumn fx:id="userColumn" minWidth="100.0" prefWidth="-1.0" text="Користувач" />
+                  <TableColumn fx:id="statusColumn" minWidth="75.0" prefWidth="123.99993896484375" text="Статус" />
+               </columns>
+               <placeholder>
+                  <Label text="Немає замовлень" />
+               </placeholder>
+            </TableView>
+            <VBox alignment="TOP_CENTER" minWidth="300.0" spacing="20.0">
+               <children>
+                  <GridPane hgap="10.0" vgap="10.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label text="Статус:" GridPane.halignment="RIGHT" />
+                        <ComboBox fx:id="statusComboBox" maxWidth="1.7976931348623157E308" styleClass="textField" stylesheets="@../design/style.css" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
+                  <VBox alignment="CENTER" spacing="10.0">
+                     <children>
+                        <Button fx:id="updateStatusButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="side-btn" stylesheets="@../design/style.css" text="Оновити статус" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

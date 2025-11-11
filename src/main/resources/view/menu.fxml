@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1050.0" style="-fx-background-color: transparent;"
+  xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+  fx:controller="com.liamtseva.cafepossystem.presentation.controller.MenuController">
+  <children>
+    <VBox spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+
+        <HBox alignment="CENTER_LEFT" spacing="16.0" style="-fx-padding: 20;">
+          <children>
+            <Label prefHeight="35.0" prefWidth="228.0" text="Меню закладу" textFill="#025726">
+              <font>
+                <Font size="24.0"/>
+              </font>
+            </Label>
+            <HBox alignment="CENTER_LEFT" spacing="12.0"
+              style="-fx-background-color: white; -fx-background-radius: 14px; -fx-padding: 8 16; -fx-effect: dropshadow(gaussian, rgba(2, 87, 38, 0.15), 10, 0.2, 0, 2); -fx-border-color: #c4e4c7; -fx-border-width: 1px; -fx-border-radius: 14px;"
+              HBox.hgrow="ALWAYS">
+              <children>
+                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true"
+                  preserveRatio="true">
+                  <image>
+                    <Image url="@../data/search.png"/>
+                  </image>
+                </ImageView>
+                <TextField fx:id="searchTextField" promptText="Пошук страв за назвою..."
+                  style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-font-size: 15px;"
+                  HBox.hgrow="ALWAYS">
+                  <font>
+                    <Font size="15.0"/>
+                  </font>
+                </TextField>
+              </children>
+            </HBox>
+
+            <ComboBox fx:id="categoryComboBox" prefHeight="42.0" prefWidth="220.0"
+              promptText="Категорія"
+              style="-fx-background-color: white; -fx-border-color: #c4e4c7; -fx-border-radius: 14px; -fx-background-radius: 14px; -fx-font-size: 14px; -fx-effect: dropshadow(gaussian, rgba(2, 87, 38, 0.15), 10, 0.2, 0, 2);">
+              <value>
+                <String fx:value="Усі категорії"/>
+              </value>
+            </ComboBox>
+          </children>
+        </HBox>
+
+        <Label fx:id="errorLabel"
+          style="-fx-text-fill: #d32f2f; -fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 0 20;">
+          <font>
+            <Font size="16.0"/>
+          </font>
+        </Label>
+
+        <ScrollPane fx:id="menuScrollPane" fitToHeight="true" fitToWidth="true"
+          style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-padding: 0 20;"
+          VBox.vgrow="ALWAYS">
+          <content>
+            <GridPane fx:id="menuGridPane" hgap="16.0" style="-fx-padding: 4;" vgap="16.0"/>
+          </content>
+        </ScrollPane>
+      </children>
+      <padding>
+        <Insets bottom="0" left="0" right="0" top="0"/>
+      </padding>
+    </VBox>
+  </children>
+</AnchorPane>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="600.0" prefWidth="900.0" styleClass="auth-background" stylesheets="@../design/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.liamtseva.cafepossystem.presentation.controller.RegistrationController">
+
+  <children>
+    <HBox alignment="CENTER" maxHeight="500" maxWidth="700.0" spacing="0" styleClass="auth-card">
+      <children>
+
+        <VBox>
+          <StackPane>
+            <ImageView fx:id="regImage" fitHeight="500.0" fitWidth="330.0" preserveRatio="false">
+              <image>
+                <Image url="@../data/auth.jpg" />
+              </image>
+            </ImageView>
+          </StackPane>
+        </VBox>
+
+        <VBox alignment="CENTER" prefWidth="400" spacing="18">
+          <padding>
+            <Insets bottom="40" left="40" right="40" top="40" />
+          </padding>
+          <children>
+
+            <Label styleClass="auth-title" text="CAFE POS">
+              <font>
+                <Font size="22.0" />
+              </font>
+            </Label>
+
+            <Label styleClass="auth-subtitle" text="Створення нового облікового запису">
+              <font>
+                <Font size="14.0" />
+              </font>
+            </Label>
+
+            <TextField fx:id="loginField" promptText="Логін" styleClass="auth-textField" />
+            <TextField fx:id="emailField" promptText="Email" styleClass="auth-textField" />
+            <PasswordField fx:id="passwordField" promptText="Пароль" styleClass="auth-textField" />
+
+            <Button fx:id="signUpButton" prefHeight="41.0" prefWidth="319.0" styleClass="auth-primary-btn" text="Зареєструватися">
+              <font>
+                <Font size="14.0" />
+              </font>
+            </Button>
+
+            <HBox alignment="CENTER" spacing="8">
+              <Line endX="50" styleClass="divider-line" />
+              <Label styleClass="divider-text" text="АБО" />
+              <Line endX="50" styleClass="divider-line" />
+            </HBox>
+
+            <Button fx:id="signInButton" prefHeight="40.0" prefWidth="320.0" styleClass="auth-secondary-btn" text="Авторизуватися">
+              <font>
+                <Font size="14.0" />
+              </font>
+            </Button>
+
+          </children>
+        </VBox>
+      </children>
+    </HBox>
+
+    <Button fx:id="btnClose" styleClass="close-button" translateX="-20" translateY="20" StackPane.alignment="TOP_RIGHT">
+      <graphic>
+        <ImageView fitHeight="20" fitWidth="20" preserveRatio="true">
+          <image>
+            <Image url="@../data/close.png" />
+          </image>
+        </ImageView>
+      </graphic>
+    </Button>
+  </children>
+</StackPane>

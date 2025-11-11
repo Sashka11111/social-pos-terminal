@@ -1,0 +1,18 @@
+package com.liamtseva.cafepossystem.persistence.entity;
+
+import java.util.UUID;
+
+public record Category(
+    UUID id,
+    String categoryName
+) implements Entity,Comparable<Category> {
+  @Override
+  public int compareTo(Category o) {
+    return this.categoryName.compareTo(o.categoryName);
+  }
+
+  @Override
+  public UUID id() {
+    return id;
+  }
+}
